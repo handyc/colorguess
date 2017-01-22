@@ -43,4 +43,4 @@ end = prompt Quit
 
 fromResult :: Result -> Prompt GuessPrompt ()
 fromResult Correct = prompt (Say "you are correct sir!") >> end
-fromResult res     = prompt (Say (show res)) >> play
+fromResult res     = prompt (Say (resultPrint res)) >> play

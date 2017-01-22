@@ -6,6 +6,7 @@ module Types
   , Color (..)
   , GuessPrompt (..)
   , prettyPrint
+  , resultPrint
   ) where
 
 data Action = ColorIs Color | Hint | NOOP | End deriving (Read)
@@ -43,3 +44,9 @@ prettyPrint Indigo = "Indigo"
 prettyPrint Violet = "Violet"
 prettyPrint White = "White"
 prettyPrint Ultra = "Ultra"
+
+-- | Replacement for Show instance
+resultPrint :: Result -> String
+resultPrint Colder = "Colder"
+resultPrint Correct = "Correct"
+resultPrint Warmer = "Warmer"
