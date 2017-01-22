@@ -10,7 +10,7 @@ module Types
 
 data Action = ColorIs Color | Hint | NOOP | End deriving (Read)
 
-data Result = Colder | Correct | Warmer deriving (Enum)
+data Result = Colder | Correct | Warmer deriving (Enum, Show)
 
 newtype Secret a = Secret { fromSecret :: a }
 
@@ -24,7 +24,7 @@ data Color
   | Violet
   | White
   | Ultra
-     deriving (Bounded, Enum, Eq, Ord, Read)
+      deriving (Bounded, Enum, Eq, Ord, Read)
 
 data GuessPrompt a where
   Say   :: String -> GuessPrompt ()
@@ -32,15 +32,14 @@ data GuessPrompt a where
   Guess :: Color -> GuessPrompt Result
   Quit  :: GuessPrompt ()
 
-  -- | Replacement for Show instance
-  prettyPrint :: Color -> String
-  prettyPrint Red = "the color of anger"
-  prettyPrint Orange = "the color of monastic robes"
-  prettyPrint Yellow = "the color of cowardice"
-  prettyPrint Green = "the color of envy"
-  prettyPrint Blue = "the color of sadness"
-  prettyPrint Indigo = "the color of my jeans"
-  prettyPrint Violet = "like a pretty flower"
-  prettyPrint White = "the color of purity"
-  prettyPrint Ultra = "the ultimate color, beyond human comprehension"
-  prettyPrint _ = "That's not even a color!"
+-- | Replacement for Show instance
+prettyPrint :: Color -> String
+prettyPrint Red = "Red"
+prettyPrint Orange = "Orange"
+prettyPrint Green = "Green"
+prettyPrint Yellow = "Yellow"
+prettyPrint Blue = "Blue"
+prettyPrint Indigo = "Indigo"
+prettyPrint Violet = "Violet"
+prettyPrint White = "White"
+prettyPrint Ultra = "Ultra"
