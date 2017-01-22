@@ -21,7 +21,7 @@ play :: Prompt GuessPrompt ()
 play = do
   action <- queryPrompt
   case action of
-    (ColorIs color) -> guess color  
+    (ColorIs color) -> guess color
     Hint          -> hint
     NOOP          -> play
     End           -> end
@@ -29,7 +29,7 @@ play = do
 queryPrompt :: Prompt GuessPrompt Action
 queryPrompt = prompt (Say commands) >> prompt (Query guess')
   where
-    guess'    = "Make a guess. Colors are " <> (concatMap show colors)
+    guess'    = "Make a guess. Colors are " <> (concatMap prettyPrint colors)
     commands = "Commands are <ColorIs color> <Hint> <End>"
 
 guess :: Color -> Prompt GuessPrompt ()
