@@ -11,7 +11,7 @@ module Types
 
 data Action = ColorIs Color | Hint | NOOP | End deriving (Read)
 
-data Result = Colder | Correct | Warmer deriving (Enum, Show)
+data Result = Colder | Correct | Warmer deriving (Enum)
 
 newtype Secret a = Secret { fromSecret :: a }
 
