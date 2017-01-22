@@ -29,7 +29,7 @@ play = do
 queryPrompt :: Prompt GuessPrompt Action
 queryPrompt = prompt (Say commands) >> prompt (Query guess')
   where
-    guess'    = "Make a guess. Colors are " <> (concatMap prettyPrint colors)
+    guess'    = "Make a guess. Colors are " <> (concatMap spacedPrint colors)
     commands = "Commands are <ColorIs color> <Hint> <End>"
 
 guess :: Color -> Prompt GuessPrompt ()
